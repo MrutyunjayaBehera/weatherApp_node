@@ -11,6 +11,8 @@ const url1 = 'http://api.weatherstack.com/current?access_key=27482479247cd55d11e
 request({ url: url1, json: true }, (error, response) => {
   if (error) {
     console.log('Unable to connect to weather service');
+  } else if (response.body.error) {
+    console.log(response.body.error);
   } else {
     const curr = response.body.current;
     console.log(curr.weather_descriptions[0] + '. It is currently ' + curr.temperature + 'degrees outside and ' + curr.precip + '% chance of raining.');
