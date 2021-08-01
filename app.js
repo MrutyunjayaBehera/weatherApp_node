@@ -18,7 +18,6 @@ request({ url: url1, json: true }, (error, response) => {
 })
 
 
-
 // Geocoding
 // address -> lat/lon -> weather
 // const url2 = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Hyderabad.json?proximity=17.5947,78.1230&access_token=pk.eyJ1IjoidmlrYXNoZWUiLCJhIjoiY2tydGNsN284MTEzMTJucWNjMGozd2hkZyJ9.9rua5cLtgfaR98WqOOaSsw&limit=1';
