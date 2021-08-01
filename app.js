@@ -13,8 +13,6 @@ request({ url: url1, json: true }, (error, response) => {
     console.log('Unable to connect to weather service');
   } else if (response.body.error) {
     console.log(response.body.error);
-  } else if (response.body.error) {
-    console.log(response.body.error);
   } else {
     const curr = response.body.current;
     console.log(curr.weather_descriptions[0] + '. It is currently ' + curr.temperature + 'degrees outside and ' + curr.precip + '% chance of raining.');
