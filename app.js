@@ -3,6 +3,7 @@
 //mapbox API key= pk.eyJ1IjoidmlrYXNoZWUiLCJhIjoiY2tydGNsN284MTEzMTJucWNjMGozd2hkZyJ9.9rua5cLtgfaR98WqOOaSsw
 
 const request = require('postman-request');
+const geocode = require('./utils/geocode');
 
 
 // get weather report
@@ -22,14 +23,19 @@ const request = require('postman-request');
 
 // Geocoding
 // address -> lat/lon -> weather
-const url2 = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Hyderabad.json?proximity=17.5947,78.1230&access_token=pk.eyJ1IjoidmlrYXNoZWUiLCJhIjoiY2tydGNsN284MTEzMTJucWNjMGozd2hkZyJ9.9rua5cLtgfaR98WqOOaSsw&limit=1';
-request({ url: url2, json: true }, (error, response) => {
-  if (error) {
-    console.log('Unable to connect to the service');
-  } else if (response.body.message) {
-    console.log(response.body.message);
-  } else {
-    const curr = response.body.features;
-    console.log('Longitude is: ' + curr[0].center[0] + ' and latitude is: ' + curr[0].center[1]);
-  }
+// const url2 = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Hyderabad.json?proximity=17.5947,78.1230&access_token=pk.eyJ1IjoidmlrYXNoZWUiLCJhIjoiY2tydGNsN284MTEzMTJucWNjMGozd2hkZyJ9.9rua5cLtgfaR98WqOOaSsw&limit=1';
+// request({ url: url2, json: true }, (error, response) => {
+//   if (error) {
+//     console.log('Unable to connect to the service');
+//   } else if (response.body.message) {
+//     console.log(response.body.message);
+//   } else {
+//     const curr = response.body.features;
+//     console.log('Longitude is: ' + curr[0].center[0] + ' and latitude is: ' + curr[0].center[1]);
+//   }
+// })
+
+geocode('Mumbai', (error, data) => {
+  console.log('Error', error);
+  console.log('Data', data);
 })
