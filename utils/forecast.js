@@ -7,7 +7,7 @@ const forecast = (latitude, longitude, callback) => {
   request({ url: url, json: true }, (error, response) => {
     if (error) {
       callback('Unable to connect to the server.', undefined);
-    } else if (response.body.error) {
+    } else if (response.body.current.length === 0) {
       callback('address not found', undefined);
     } else {
       callback(undefined, {
